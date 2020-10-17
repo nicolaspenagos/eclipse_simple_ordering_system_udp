@@ -121,6 +121,17 @@ public class Main extends PApplet implements OnMessageListener {
 			
 			if(i!=-1 && i<placedOrders.size()) {
 				
+				PlacedOrder placedOrder = placedOrders.get(i);
+				String ip = placedOrder.getIp();
+				int port = placedOrder.getPort();
+			
+				Gson gson = new Gson();
+				
+				Confirmation confirmation = new Confirmation(UUID.randomUUID().toString(), "DONE", "It represents the state of the order");
+				String json = gson.toJson(confirmation);
+				
+				udp.sendMessage(json, port, ip);
+				
 				placedOrders.remove(i);
 				
 			}
@@ -143,11 +154,9 @@ public class Main extends PApplet implements OnMessageListener {
 		String[] parts = msg.split("%");
 		String json = parts[0];
 		String socketAddress = parts[1];
-		System.out.println(json);
-
+	
 		Generic generic = gson.fromJson(json, Generic.class);
-		System.out.println(generic.type);
-
+		
 		switch (generic.type) {
 
 		case "Order":

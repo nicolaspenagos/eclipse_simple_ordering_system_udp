@@ -25,6 +25,9 @@ public class UDPConnection extends Thread {
     private OnMessageListener observer;
     private boolean kill;
 
+    // -------------------------------------
+    // UDP Methods
+    // -------------------------------------
     @Override
     public void run(){
 
