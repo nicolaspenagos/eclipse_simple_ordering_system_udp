@@ -33,7 +33,7 @@ public class Confirmation {
 
     // -------------------------------------
     // Getters and setters
-    // -------------------------------------
+    // ------------------------------------- 
     public String getId() {
         return id;
     }

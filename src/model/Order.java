@@ -5,6 +5,7 @@
  */
 package model;
 
+import java.util.Calendar;
 import java.util.Date;
 
 public class Order {
@@ -16,7 +17,7 @@ public class Order {
     // -------------------------------------
     private String id;
     private String product;
-    private Date date;
+    private Calendar date;
     private String description;
 
     // -------------------------------------
@@ -26,7 +27,7 @@ public class Order {
 
     }
 
-    public Order(String id, String product, Date date, String description) {
+    public Order(String id, String product, Calendar date, String description) {
 
         this.id = id;
         this.product = product;
@@ -54,11 +55,11 @@ public class Order {
         this.product = product;
     }
 
-    public Date getDate() {
+    public Calendar getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(Calendar date) {
         this.date = date;
     }
 

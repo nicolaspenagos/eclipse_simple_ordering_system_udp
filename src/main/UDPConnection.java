@@ -64,7 +64,7 @@ public class UDPConnection extends Thread {
 
     }
 
-    public void sendMessage(String msg){
+    public void sendMessage(String msg, int port, String ip){
 
         new Thread(
 
@@ -72,8 +72,8 @@ public class UDPConnection extends Thread {
 
                     try {
 
-                        InetAddress ip = InetAddress.getByName("192.168.20.36");
-                        DatagramPacket packet = new DatagramPacket(msg.getBytes(), msg.getBytes().length, ip, 5000);
+                        InetAddress iAIp = InetAddress.getByName(ip);
+                        DatagramPacket packet = new DatagramPacket(msg.getBytes(), msg.getBytes().length, iAIp, port);
                         socket.send(packet);
 
                     } catch (UnknownHostException e) {

@@ -5,6 +5,10 @@
  */
 package model;
 
+import java.util.GregorianCalendar;
+
+import processing.core.PImage;
+
 public class PlacedOrder {
 	
 	// -------------------------------------
@@ -13,6 +17,10 @@ public class PlacedOrder {
 	private Order order;
 	private int port;
 	private String ip;
+	private PImage image;
+	private GregorianCalendar date;
+	private int x;
+	private int y;
 	
 	// -------------------------------------
     // Constructors
@@ -22,11 +30,19 @@ public class PlacedOrder {
 		this.order = order;
 		this.port = port;
 		this.ip = ip;
+		this.x = 50;
 		
 	}
 	
 	// -------------------------------------
-    // Constructors
+    // Methods 
+    // -------------------------------------
+	public void updatePos(int i) {
+		this.y = 210 + (90*i);
+	}
+	
+	// -------------------------------------
+    // Getters and setters
     // -------------------------------------
 	public Order getOrder() {
 		return order;
@@ -45,6 +61,38 @@ public class PlacedOrder {
 	}
 	public void setIp(String ip) {
 		this.ip = ip;
+	}
+
+	public PImage getImage() {
+		return image;
+	}
+
+	public void setImage(PImage image) {
+		this.image = image;
+	}
+
+	public int getX() {
+		return x;
+	}
+
+	public void setX(int x) {
+		this.x = x;
+	}
+
+	public int getY() {
+		return y;
+	}
+
+	public void setY(int y) {
+		this.y = y;
+	}
+
+	public GregorianCalendar getDate() {
+		return date;
+	}
+
+	public void setDate(GregorianCalendar date) {
+		this.date = date;
 	}
 	
 }
