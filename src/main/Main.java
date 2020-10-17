@@ -111,7 +111,7 @@ public class Main extends PApplet implements OnMessageListener {
 				i = 2;
 			}
 			
-			if (mouseY >= 390 && mouseY <= 470) {
+			if (mouseY >= 480 && mouseY <= 560) {
 				i = 3;
 			}
 			
@@ -128,7 +128,7 @@ public class Main extends PApplet implements OnMessageListener {
 				Gson gson = new Gson();
 				
 				Confirmation confirmation = new Confirmation(UUID.randomUUID().toString(), "DONE", "It represents the state of the order");
-				String json = gson.toJson(confirmation);
+				String json = gson.toJson(confirmation)+"%"+i;
 				
 				udp.sendMessage(json, port, ip);
 				
@@ -190,7 +190,7 @@ public class Main extends PApplet implements OnMessageListener {
 				Confirmation confirmation = new Confirmation(UUID.randomUUID().toString(), "FULL_STACK",
 						"Describes the order status");
 				json = gson.toJson(confirmation);
-				udp.sendMessage(json, port, ip);
+				udp.sendMessage(json+"%-1", port, ip);
 
 			}
 
